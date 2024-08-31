@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="40dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Calcula tu Nota"
+            android:textSize="30sp"
+            />
+        <EditText
+            android:id="@+id/etNombreEstudiante"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombre estudiante"
+            android:inputType="text"
+            android:textSize="22sp"/>
+        <EditText
+            android:id="@+id/etNombreCurso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombre del curso"
+            android:inputType="text"
+            android:textSize="22sp"/>
+        <EditText
+            android:id="@+id/etNota1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nota 1"
+            android:inputType="numberDecimal"
+            android:textSize="22sp"/>
+        <EditText
+            android:id="@+id/etNota2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nota 2"
+            android:inputType="numberDecimal"
+            android:textSize="22sp"/>
+        <CheckBox
+            android:id="@+id/cbRepeticion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:textSize="12sp"
+            android:text="¿El curso ha sido realizado más de una vez?"
+            />
+        <Button
+            android:id="@+id/btnCalcularNota"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:text="Calcular nota"
+            />
+        <TextView
+            android:id="@+id/tvResultado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="15sp"/>
+
+    </LinearLayout>
+
+
+</layout>
+
