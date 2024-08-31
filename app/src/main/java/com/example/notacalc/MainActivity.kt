@@ -1,6 +1,8 @@
 package com.example.notacalc
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -8,8 +10,6 @@ import androidx.databinding.DataBindingUtil
 import com.example.notacalc.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    /* Realice una clase llamada Estudiante con los atributos
-    nombreEstudiante, curso, nota1, nota2, notaFinal. */
     lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,15 +18,9 @@ class MainActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         addBtnAddOneListener()
+        onChangeHandler()
     }
 
-    /* Realice una clase llamada Estudiante con los atributos:
-     * nombreEstudiante,
-     * curso,
-     * nota1,
-     * nota2,
-     * notaFinal.
-    */
     class Estudiante{
         var nombre: String
         var curso: String
@@ -65,6 +59,26 @@ class MainActivity : AppCompatActivity() {
         binding.etNota1.text = null
         binding.etNota2.text = null
         binding.cbRepeticion.isChecked = false
+    }
+
+    val formWatcher = object : TextWatcher {
+        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+        }
+        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            binding.btnCalcularNota.isEnabled = binding.etNombreEstudiante.text.toString().isNotEmpty() &&
+                    binding.etNombreCurso.text.toString().isNotEmpty() &&
+                    binding.etNota1.text.toString().isNotEmpty() &&
+                    binding.etNota2.text.toString().isNotEmpty()
+        }
+        override fun afterTextChanged(s: Editable?) {
+        }
+    }
+
+    private fun onChangeHandler(){
+        binding.etNombreEstudiante.addTextChangedListener(formWatcher)
+        binding.etNombreCurso.addTextChangedListener(formWatcher)
+        binding.etNota1.addTextChangedListener(formWatcher)
+        binding.etNota2.addTextChangedListener(formWatcher)
     }
 
     private fun addBtnAddOneListener(){
